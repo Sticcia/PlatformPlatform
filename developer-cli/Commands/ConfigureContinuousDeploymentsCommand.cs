@@ -906,9 +906,7 @@ public class ConfigureContinuousDeploymentsCommand : Command
 
     private string RunAzureCliCommand(string arguments, bool redirectOutput = true)
     {
-        var azureCliCommand = Configuration.IsWindows ? "cmd.exe /C az" : "az";
-
-        return ProcessHelper.StartProcess($"{azureCliCommand} {arguments}", redirectOutput: redirectOutput, exitOnError: false);
+        return ProcessHelper.StartProcess($"az {arguments}", redirectOutput: redirectOutput, exitOnError: false);
     }
 
     private static Dictionary<string, string> GetAzureLocations()
